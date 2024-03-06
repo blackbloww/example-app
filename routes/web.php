@@ -18,7 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::prefix('users')->group(function () {
-    Route::get('/', [UsersController::class, 'index'])->name('users.index');
+    Route::get('/', [UsersController::class, 'index'])->name('user.index');
     Route::post('/store', [UsersController::class, 'store'])->name('users.store');
     Route::put('/update', [UsersController::class, 'update'])->name('users.update');
+    Route::delete('/dele', [UsersController::class, 'dele'])->name('users.dele');
 });

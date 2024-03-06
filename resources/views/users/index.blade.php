@@ -28,7 +28,7 @@
                     <td>
                         <form action="{{ route('users.update', ['id' => $user->id]) }}" method="post">
                             @csrf
-                            @method('put')
+                            @method('PUT')
                             {{-- <input type="hidden" name="id" value="{{ $user->id }}"> --}}
                             <input type="text" name="name" required placeholder="name"
                                 value="{{ $user->name }}">
@@ -36,7 +36,13 @@
                                 value="{{ $user->email }}">
                             <input type="password" name="password" required placeholder="password">
                             <button type="submit">Cập nhật</button>
-                        </form>
+
+                        </form><td>
+                        <form action="{{ route('users.dele', ['id' => $user->id]) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit">delete</button>
+                        </form></td>
                     </td>
                 </tr>
             @endforeach

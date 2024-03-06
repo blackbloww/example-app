@@ -11,6 +11,7 @@ class UsersController extends Controller
 {
     public function index()
     {
+
         $users = User::get();
         return view('users.index', ['users' => $users]);
     }
@@ -40,7 +41,12 @@ class UsersController extends Controller
         $user->save();
         return redirect()->route('users.index');
     }
-
+    public function dele(Request $request){
+        // $user = User::findOrFail($request->id);
+        // $user->delete();
+        User::destroy($request->id);
+        return redirect()->route('users.index');
+    }
     // $user->delete();
 
 
